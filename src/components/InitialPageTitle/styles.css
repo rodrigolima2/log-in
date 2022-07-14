@@ -1,0 +1,11 @@
+.initial-page__title {
+    cursor: default;
+
+    width: fit-content;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 62px;
+    color: #000000;
+}

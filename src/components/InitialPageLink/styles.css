@@ -1,0 +1,14 @@
+.initial-page__link {
+    all: unset;
+    cursor: pointer;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 23px;
+    color: #000000;
+}
+
+.initial-page__link:hover {
+    color: #636363;
+}
