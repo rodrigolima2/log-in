@@ -1,5 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Iceland:regular);
 
+:root {
+    --toastify-color-error: rgb(27, 27, 27);
+    --toastify-font-family: 'Iceland';
+    --toastify-text-color-light: #303030;
+}
+
 * {
     box-sizing: border-box;
 

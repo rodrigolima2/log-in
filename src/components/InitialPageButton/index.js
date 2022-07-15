@@ -1,8 +1,8 @@
 import './styles.css';
 
-function InitialPageButton({ children }) {
+function InitialPageButton({ onClick, children }) {
     return (
-        <button className="initial-page__button">{children}</button>
+        <button className="initial-page__button" type="submit" onClick={onClick}>{children}</button>
     );
 }
 
