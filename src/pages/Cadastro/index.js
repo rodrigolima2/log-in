@@ -1,15 +1,18 @@
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import useUsuario from '../../hooks/useUsuario';
+import { post } from '../../hooks/useRequests';
 
 import InitialPageTitle from '../../components/InitialPageTitle';
 import InitialPageInput from '../../components/InitialPageInput';
 import InitialPageLink from '../../components/InitialPageLink';
 import InitialPageButton from '../../components/InitialPageButton';
 
-import { errorMessage } from '../../helpers/toast';
+import { errorMessage, successfulMessage } from '../../helpers/toast';
 
 function Cadastro() {
+    const navigate = useNavigate();
     const {
         nome, setNome,
         sobrenome, setSobrenome,
@@ -27,10 +30,12 @@ function Cadastro() {
         // eslint-disable-next-line
     }, []);
 
-    function handleSubimit() {
+    async function handleSubimit() {
         if (!nome || !sobrenome || !email || !senha || !confSenha) return errorMessage('Preencha todos os campos!');
-        if (senha !== confSenha) return errorMessage('Senha e Confirmar Senha não conferem!');
         if (nome.includes(" ")) return errorMessage('Insira apenas seu primeiro nome');
+        if (sobrenome.includes(" ")) return errorMessage('Insira apenas um sobrenome');
+        if (senha.length < 8 || senha.length > 20) return errorMessage('Insira uma senha com no mínimo 8 e no máximo 20 caracteres!');
+        if (senha !== confSenha) return errorMessage('Senha e Confirmar Senha não conferem!');
         if (senha.includes(" ")) return errorMessage('Insira uma senha sem espaços!');
 
         const re = /\S+@\S+\.\S+/;
@@ -44,9 +49,12 @@ function Cadastro() {
             senha: senha.trim()
         }
 
-        console.log(body)
+        const result = await post('user', body);
 
-        return;
+        if (!result) return errorMessage('Não foi possível realizar o cadastro, tente novamente!');
+
+        successfulMessage('Cadastro realizado com sucesso!');
+        return navigate('/');
     }
 
     return (
