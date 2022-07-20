@@ -1,0 +1,35 @@
+.home {
+    display: flex;
+    flex-direction: column;
+
+    min-height: 100vh;
+
+    background-color: #333333;
+
+    padding: 0 30px;
+}
+
+.home__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+
+    padding: 15px 0;
+}
+
+.home__name-logout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 36px;
+}
+
+.home__name {
+    font-style: normal;
+    font-weight: 100;
+    font-size: 25px;
+    line-height: 35px;
+    color: #F2F2F2;
+}

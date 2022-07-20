@@ -5,13 +5,14 @@ import {
 } from "react-router-dom";
 
 import { UsuarioProvider } from "./contexts/UsuarioContext/UsuarioProvider";
+import { LogadoProvider } from "./contexts/LogadoContext/UsuarioProvider";
+
+import ProtectedRoutes from "./components/ProtectedRoutes/ProtectedRoutes";
 
 import Login from './pages/Login';
 import Cadastro from './pages/Cadastro';
 import AlterarSenha from './pages/AlterarSenha';
 import Home from "./pages/Home";
-
-import ProtectedRoutes from "./components/ProtectedRoutes/ProtectedRoutes";
 
 import './App.css';
 
@@ -26,7 +27,7 @@ function App() {
             <Route path="/cadastrar" element={<Cadastro />} />
             <Route path="/alterar-senha" element={<AlterarSenha />} />
             <Route element={<ProtectedRoutes />}>
-              <Route path="/home" element={<Home />} />
+              <Route path="/home" element={<LogadoProvider><Home /></LogadoProvider>} />
             </Route>
           </Routes>
         </BrowserRouter>

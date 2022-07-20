@@ -1,5 +1,26 @@
 import { errorMessage } from "../helpers/toast";
 
+async function get(route, token) {
+    try {
+        const response = await fetch(`http://localhost:3333/${route}`, {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message);
+        }
+
+        return data;
+    } catch (error) {
+        errorMessage(error.message);
+    }
+}
+
 async function post(route, body) {
     try {
         const response = await fetch(`http://localhost:3333/${route}`, {
@@ -42,4 +63,4 @@ async function verifyToken(route, token) {
     }
 }
 
-export { post, verifyToken };
+export { get, post, verifyToken };
