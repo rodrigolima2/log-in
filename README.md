@@ -41,4 +41,4 @@ Passo a Passo
 - [x] Fazer as Validações
 - [x] Recolher os dados de cadastro
 - [x] Fazer Login
-- [ ] Alterar nome, sobrenome, senha quando logado
+- [x] Alterar nome, sobrenome, senha quando logado
