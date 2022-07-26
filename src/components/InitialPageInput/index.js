@@ -1,6 +1,13 @@
 import './styles.css';
 
-function InitialPageInput({ type, value, setValue, children }) {
+function InitialPageInput({ type, value, setValue, inputColor, textColor, children }) {
+    if (inputColor && textColor) {
+        document.querySelector(':root').style.setProperty('--initial-input-color', inputColor);
+        document.querySelector(':root').style.setProperty('--initial-input-info-color', textColor);
+    } else {
+        document.querySelector(':root').style.setProperty('--initial-input-color', '#D9D9D9');
+        document.querySelector(':root').style.setProperty('--initial-input-info-color', '#000000');
+    }
 
     return (
         <div className="initial-page__input-info">
