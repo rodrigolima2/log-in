@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 
 import useUsuario from '../../hooks/useUsuario';
+import { post } from '../../hooks/useRequests';
 
 import InitialPageTitle from '../../components/InitialPageTitle';
 import InitialPageInput from '../../components/InitialPageInput';
@@ -28,13 +29,20 @@ function AlterarSenha() {
         // eslint-disable-next-line
     }, []);
 
-    function handleSubimit() {
+    async function handleSubimit() {
         if (!email) return errorMessage('Insira seu email!');
 
         const re = /\S+@\S+\.\S+/;
 
         if (!re.test(email)) return errorMessage('Insira um email em formato válido!');
 
+        const body = {
+            email: email.trim().toLowerCase()
+        };
+
+        const result = await post('alter', body);
+
+        console.log(result)
         return;
     }
 
