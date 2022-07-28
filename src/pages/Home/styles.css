@@ -4,7 +4,7 @@
 
     min-height: 100vh;
 
-    background-color: #333333;
+    background-color: #F5F5F5;
 
     padding: 0 30px;
 }
@@ -31,7 +31,7 @@
     font-weight: 100;
     font-size: 25px;
     line-height: 35px;
-    color: #F2F2F2;
+    color: #000000;
 }
 
 .home__main {
@@ -39,8 +39,6 @@
     flex-direction: column;
     justify-content: center;
     gap: 18px;
-
-    min-height: calc(100vh - 100px);
 }
 
 .home__email {
@@ -48,9 +46,9 @@
     font-weight: 400;
     font-size: 24px;
     line-height: 23px;
-    color: #F2F2F2;
+    color: #000000;
 
-    margin-bottom: 20px;
+    margin-bottom: 80px;
 }
 
 .home__text {
@@ -58,7 +56,7 @@
     font-weight: 400;
     font-size: 24px;
     line-height: 23px;
-    color: #F2F2F2;
+    color: #000000;
 
-    margin-bottom: 80px;
+    margin-bottom: 20px;
 }

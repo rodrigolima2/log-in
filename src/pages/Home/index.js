@@ -5,12 +5,11 @@ import useUsuario from '../../hooks/useUsuario';
 import useLogado from '../../hooks/useLogado';
 import { get, put } from '../../hooks/useRequests';
 
+import InitialPageTitle from '../../components/InitialPageTitle';
 import InitialPageInput from '../../components/InitialPageInput';
 import InitialPageButton from '../../components/InitialPageButton';
 
 import { errorMessage, successfulMessage } from '../../helpers/toast';
-
-import logInLogo from '../../assets/log-in-logo.svg';
 
 import './styles.css';
 
@@ -94,21 +93,21 @@ function Home() {
     return (
         <div className="home">
             <header className="home__header">
-                <img src={logInLogo} alt="Logo" />
+                <InitialPageTitle>Log-In</InitialPageTitle>
                 <div className="home__name-logout">
                     <h1 className="home__name">Bem Vindo(a), {nomeHeader} {sobrenomeHeader}!</h1>
                     <InitialPageButton onClick={handleLogOff} color={'#F2C94C'}>{'<'}</InitialPageButton>
                 </div>
             </header>
             <main className="home__main">
-                <h2 className="home__email">Email: {emailHeader}</h2>
-                <h2 className="home__text">Você pode alterar seus dados abaixo, preencha apenas os campos que deseja alterar!</h2>
-                <InitialPageInput type="text" value={nome} setValue={setNome} inputColor={'#F2C94C'} textColor={'#F2F2F2'}>Alterar Nome</InitialPageInput>
-                <InitialPageInput type="text" value={sobrenome} setValue={setSobrenome} inputColor={'#F2C94C'} textColor={'#F2F2F2'}>Alterar Sobrenome</InitialPageInput>
-                <InitialPageInput type="text" value={email} setValue={setEmail} inputColor={'#F2C94C'} textColor={'#F2F2F2'}>Alterar Email</InitialPageInput>
-                <InitialPageInput type="password" value={senha} setValue={setSenha} inputColor={'#F2C94C'} textColor={'#F2F2F2'}>Alterar Senha</InitialPageInput>
-                <InitialPageInput type="password" value={confSenha} setValue={setConfSenha} inputColor={'#F2C94C'} textColor={'#F2F2F2'}>Confirmar Senha</InitialPageInput>
-                <InitialPageButton color={'#F2C94C'} onClick={handleSubimit}>{'>'}</InitialPageButton>
+                <p className="home__email">{emailHeader}</p>
+                <InitialPageTitle>Alterar Dados</InitialPageTitle>
+                <InitialPageInput type="text" value={nome} setValue={setNome}>Alterar Nome</InitialPageInput>
+                <InitialPageInput type="text" value={sobrenome} setValue={setSobrenome}>Alterar Sobrenome</InitialPageInput>
+                <InitialPageInput type="text" value={email} setValue={setEmail}>Alterar Email</InitialPageInput>
+                <InitialPageInput type="password" value={senha} setValue={setSenha}>Alterar Senha</InitialPageInput>
+                <InitialPageInput type="password" value={confSenha} setValue={setConfSenha}>Confirmar Senha</InitialPageInput>
+                <InitialPageButton onClick={handleSubimit}>{'>'}</InitialPageButton>
             </main>
         </div>
     );
