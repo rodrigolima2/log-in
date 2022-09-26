@@ -86,4 +86,26 @@ async function verifyToken(route, token) {
     }
 }
 
-export { get, post, put, verifyToken };
+async function changePassword(route, token, body) {
+    try {
+        const response = await fetch(`http://localhost:3333/${route}/${token}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(body),
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.message);
+        }
+
+        return data;
+    } catch (error) {
+        errorMessage(error.message);
+    }
+}
+
+export { get, post, put, verifyToken, changePassword };

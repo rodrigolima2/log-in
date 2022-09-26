@@ -26,6 +26,7 @@ function App() {
             <Route path="/" element={<Login />} />
             <Route path="/cadastrar" element={<Cadastro />} />
             <Route path="/alterar-senha" element={<AlterarSenha />} />
+            <Route path="/alterar-senha/:token" element={<AlterarSenha />} />
             <Route element={<ProtectedRoutes />}>
               <Route path="/home" element={<LogadoProvider><Home /></LogadoProvider>} />
             </Route>
