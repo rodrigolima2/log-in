@@ -9,7 +9,7 @@ import InitialPageInput from '../../components/InitialPageInput';
 import InitialPageLink from '../../components/InitialPageLink';
 import InitialPageButton from '../../components/InitialPageButton';
 
-import { errorMessage } from '../../helpers/toast';
+import { errorMessage, successfulMessage } from '../../helpers/toast';
 
 function AlterarSenha() {
 
@@ -54,7 +54,10 @@ function AlterarSenha() {
                     email: email.trim().toLowerCase(),
                 };
 
-                return await post('alter', body);
+                await post('alter', body);
+
+                setEmail('');
+                return successfulMessage("Um email de recuperação de senha foi enviado!");
             }
 
             if (token) {
@@ -62,12 +65,15 @@ function AlterarSenha() {
                     senha: senha.trim()
                 };
 
-                return await changePassword('alter', token, body);
+                await changePassword('alter', token, body);
+
+                setSenha('');
+                setConfSenha('');
+                return successfulMessage("Senha Alterada com sucesso!!");
             }
         } catch (error) {
-            errorMessage(error.message);
+            return errorMessage(error.message);
         }
-
     }
 
     return (
