@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import useUsuario from '../../hooks/useUsuario';
 import { post, changePassword } from '../../hooks/useRequests';
@@ -22,6 +22,7 @@ function AlterarSenha() {
     } = useUsuario();
 
     const { token } = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
         setNome('');
@@ -69,7 +70,8 @@ function AlterarSenha() {
 
                 setSenha('');
                 setConfSenha('');
-                return successfulMessage("Senha Alterada com sucesso!!");
+                successfulMessage("Senha Alterada com sucesso!!");
+                return navigate('/');
             }
         } catch (error) {
             return errorMessage(error.message);

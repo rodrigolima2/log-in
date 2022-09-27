@@ -11,10 +11,10 @@
 
 .home__header {
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: space-between;
 
-    width: 100%;
+    width: 30%;
 
     padding: 15px 0;
 }
@@ -24,6 +24,8 @@
     align-items: center;
     justify-content: space-between;
     gap: 36px;
+
+    margin-bottom: -30px;
 }
 
 .home__name {
@@ -48,7 +50,7 @@
     line-height: 23px;
     color: #000000;
 
-    margin-bottom: 80px;
+    margin-bottom: 15px;
 }
 
 .home__text {

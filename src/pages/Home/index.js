@@ -94,13 +94,11 @@ function Home() {
         <div className="home">
             <header className="home__header">
                 <InitialPageTitle>Log-In</InitialPageTitle>
-                <div className="home__name-logout">
-                    <h1 className="home__name">Bem Vindo(a), {nomeHeader} {sobrenomeHeader}!</h1>
-                    <InitialPageButton onClick={handleLogOff} color={'#F2C94C'}>{'<'}</InitialPageButton>
-                </div>
+                <h1 className="home__name">Bem Vindo(a), {nomeHeader} {sobrenomeHeader}!</h1>
+                <p className="home__email">{emailHeader}</p>
+                <InitialPageButton onClick={handleLogOff} color={'#F2C94C'}>{'<'}</InitialPageButton>
             </header>
             <main className="home__main">
-                <p className="home__email">{emailHeader}</p>
                 <InitialPageTitle>Alterar Dados</InitialPageTitle>
                 <InitialPageInput type="text" value={nome} setValue={setNome}>Alterar Nome</InitialPageInput>
                 <InitialPageInput type="text" value={sobrenome} setValue={setSobrenome}>Alterar Sobrenome</InitialPageInput>
