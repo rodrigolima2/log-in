@@ -12,6 +12,8 @@ import InitialPageButton from '../../components/InitialPageButton';
 import { errorMessage, successfulMessage } from '../../helpers/toast';
 
 function AlterarSenha() {
+    const { token } = useParams();
+    const navigate = useNavigate();
 
     const {
         setNome,
@@ -20,9 +22,6 @@ function AlterarSenha() {
         senha, setSenha,
         confSenha, setConfSenha
     } = useUsuario();
-
-    const { token } = useParams();
-    const navigate = useNavigate();
 
     useEffect(() => {
         setNome('');
@@ -34,39 +33,39 @@ function AlterarSenha() {
     }, []);
 
     async function handleSubimit() {
-        if (!token) {
-            if (!email) return errorMessage('Insira seu email!');
-
-            const re = /\S+@\S+\.\S+/;
-
-            if (!re.test(email)) return errorMessage('Insira um email em formato válido!');
-        }
-
-        if (token) {
-            if (!senha || !confSenha) return errorMessage('Preencha todos os campos!');
-            if (senha.length < 8 || senha.length > 20) return errorMessage('Insira uma senha com no mínimo 8 e no máximo 20 caracteres!');
-            if (senha !== confSenha) return errorMessage('Senha e Confirmar Senha não conferem!');
-            if (senha.includes(" ")) return errorMessage('Insira uma senha sem espaços!');
-        }
-
         try {
             if (!token) {
+                if (!email) return errorMessage('Insira seu email!');
+
+                const re = /\S+@\S+\.\S+/;
+
+                if (!re.test(email)) return errorMessage('Insira um email em formato válido!');
+
                 const body = {
                     email: email.trim().toLowerCase(),
                 };
 
-                await post('alter', body);
+                const response = await post('alter', body);
+
+                if (!response) return;
 
                 setEmail('');
                 return successfulMessage("Um email de recuperação de senha foi enviado!");
             }
 
             if (token) {
+                if (!senha || !confSenha) return errorMessage('Preencha todos os campos!');
+                if (senha.length < 8 || senha.length > 20) return errorMessage('Insira uma senha com no mínimo 8 e no máximo 20 caracteres!');
+                if (senha !== confSenha) return errorMessage('Senha e Confirmar Senha não conferem!');
+                if (senha.includes(" ")) return errorMessage('Insira uma senha sem espaços!');
+
                 const body = {
                     senha: senha.trim()
                 };
 
-                await changePassword('alter', token, body);
+                const response = await changePassword('alter', token, body);
+
+                if (!response) return;
 
                 setSenha('');
                 setConfSenha('');

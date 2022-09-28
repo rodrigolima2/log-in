@@ -94,7 +94,7 @@ function Home() {
         <div className="home">
             <header className="home__header">
                 <InitialPageTitle>Log-In</InitialPageTitle>
-                <h1 className="home__name">Bem Vindo(a), {nomeHeader} {sobrenomeHeader}!</h1>
+                <h1 className="home__name">Bem Vindo(a), <b>{nomeHeader} {sobrenomeHeader}</b>!</h1>
                 <p className="home__email">{emailHeader}</p>
                 <InitialPageButton onClick={handleLogOff} color={'#F2C94C'}>{'<'}</InitialPageButton>
             </header>

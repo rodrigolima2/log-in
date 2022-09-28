@@ -2,7 +2,7 @@ import { errorMessage } from "../helpers/toast";
 
 async function get(route, token) {
     try {
-        const response = await fetch(`http://localhost:3333/${route}`, {
+        const response = await fetch(`https://log-in-api-web.herokuapp.com/${route}`, {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -23,7 +23,7 @@ async function get(route, token) {
 
 async function post(route, body) {
     try {
-        const response = await fetch(`http://localhost:3333/${route}`, {
+        const response = await fetch(`https://log-in-api-web.herokuapp.com/${route}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -45,7 +45,7 @@ async function post(route, body) {
 
 async function put(route, token, body) {
     try {
-        const response = await fetch(`http://localhost:3333/${route}`, {
+        const response = await fetch(`https://log-in-api-web.herokuapp.com/${route}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -68,7 +68,7 @@ async function put(route, token, body) {
 
 async function verifyToken(route, token) {
     try {
-        const response = await fetch(`http://localhost:3333/${route}`, {
+        const response = await fetch(`https://log-in-api-web.herokuapp.com/${route}`, {
             method: "GET",
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -88,7 +88,7 @@ async function verifyToken(route, token) {
 
 async function changePassword(route, token, body) {
     try {
-        const response = await fetch(`http://localhost:3333/${route}/${token}`, {
+        const response = await fetch(`https://log-in-api-web.herokuapp.com/${route}/${token}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
