@@ -42,3 +42,13 @@
 
     margin-top: 100px;
 }
+
+@media only screen and (max-width: 630px) {
+    .initial-page {
+        min-height: 0;
+    }
+
+    .initial-page__links {
+        margin-top: 45px;
+    }
+}

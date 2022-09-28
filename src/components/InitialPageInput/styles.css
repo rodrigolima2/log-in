@@ -33,3 +33,15 @@
 
     opacity: 0.8;
 }
+
+@media only screen and (max-width: 630px) {
+    .initial-page__input {
+        width: 200px;
+    }
+}
+
+@media only screen and (max-width: 490px) {
+    .initial-page__input {
+        width: 140px;
+    }
+}

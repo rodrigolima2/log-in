@@ -9,3 +9,15 @@
     line-height: 62px;
     color: #000000;
 }
+
+@media only screen and (max-width: 630px) {
+    .initial-page__title {
+        font-size: 41px;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .initial-page__title {
+        font-size: 35px;
+    }
+}

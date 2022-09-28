@@ -14,8 +14,6 @@
     flex-direction: column;
     justify-content: space-between;
 
-    width: 30%;
-
     padding: 15px 0;
 }
 
@@ -61,4 +59,12 @@
     color: #000000;
 
     margin-bottom: 20px;
+}
+
+@media only screen and (max-width: 630px) {
+
+    .home__name,
+    .home__email {
+        font-size: 19px;
+    }
 }
